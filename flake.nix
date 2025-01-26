@@ -13,6 +13,15 @@
   let
     configuration = { pkgs, config, ... }: {
 
+      # Automatic Cleanup
+      nix.gc.automatic = true;
+      nix.gc.interval = {
+        Hour = 3;
+      };
+      nix.gc.options = "--delete-older-than 10d";
+      nix.optimise.automatic = true;
+      
+      # Packages
       nixpkgs.config.allowUnfree = true;
 
       environment.systemPackages = [ 
@@ -39,6 +48,7 @@
           onActivation.upgrade = true;
       };
 
+      # System Settings
       system.defaults = {
         dock.autohide = true;
         finder.FXPreferredViewStyle = "clmv";
