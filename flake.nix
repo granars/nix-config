@@ -12,8 +12,6 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, nix-homebrew }:
   let
     configuration = { pkgs, config, ... }: {
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
 
       nixpkgs.config.allowUnfree = true;
 
@@ -41,12 +39,19 @@
           onActivation.upgrade = true;
       };
 
+      system.defaults = {
+        dock.autohide = true;
+        finder.FXPreferredViewStyle = "clmv";
+        loginwindow.GuestEnabled = false;
+        NSGlobalDomain.AppleInterfaceStyle = "Dark" ;
+        NSGlobalDomain.KeyRepeat = 2;
+      };
+
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
       # Enable alternative shell support in nix-darwin.
-	  programs.zsh.enable = true;
-      # programs.fish.enable = true;
+	    programs.zsh.enable = true;
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
