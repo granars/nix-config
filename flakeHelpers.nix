@@ -9,7 +9,7 @@ let
       inputs.agenix.homeManagerModules.default
       inputs.nix-index-database.hmModules.nix-index
       ./users/granar/dots.nix
-      ./users/granar/age.nix
+    #  ./users/granar/age.nix
     ] ++ extraImports;
     home-manager.backupFileExtension = "bak";
     home-manager.useUserPackages = userPackages;
