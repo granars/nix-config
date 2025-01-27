@@ -16,14 +16,11 @@
         "@admin"
       ];
     };
+    gc = {
+      automatic = true;
+      interval = { Weekday = 0; Hour = 0; Minute = 0; };
+      options = "--delete-older-than 10d";
+    };
+    optimise.automatic = true;
   };
 }
-
-#       # Automatic Cleanup
-#       nix.gc.automatic = true;
-#       nix.gc.interval = {
-#         Hour = 3;
-#       };
-#       nix.gc.options = "--delete-older-than 10d";
-#       nix.optimise.automatic = true;
-      
