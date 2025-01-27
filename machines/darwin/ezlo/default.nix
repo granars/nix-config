@@ -43,8 +43,8 @@
     };
    };
     environment.systemPackages = with pkgs; [
-      zoxide
-      fzf
+      git
+      git-crypt
       discord
       obsidian
       ollama

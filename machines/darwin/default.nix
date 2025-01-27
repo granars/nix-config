@@ -8,6 +8,19 @@
   };
 }
 
+  nix = {
+    settings = {
+      max-jobs = "auto";
+      trusted-users = [
+        "root"
+        "granar"
+        "@admin"
+      ];
+    };
+}
+
+
+
 
 #       # Automatic Cleanup
 #       nix.gc.automatic = true;
