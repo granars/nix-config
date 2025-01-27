@@ -26,16 +26,26 @@
     casks = [
       "iina"
       "tailscale"
-      "element"
       "raycast"
       "zen-browser"
+      "balenaetcher"
+      "1password"
+      "istat-menus"
+      "home-assistant"
+      "daisydisk"
+      "prusaslicer"
     ];
     masApps = {
       "CotEditor" = 1024640650;
     };
    };
     environment.systemPackages = with pkgs; [
-      alacritty
+      zoxide
+      fzf
+      discord
+      obsidian
+      whatsapp-for-mac
+      rpi-imager
       inputs.agenix.packages."${system}".default
     ];
 
