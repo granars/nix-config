@@ -34,6 +34,9 @@
       "home-assistant"
       "daisydisk"
       "prusaslicer"
+      "raspberry-pi-imager"
+      "whatsapp"
+      "visual-studio-code"
     ];
     masApps = {
       "CotEditor" = 1024640650;
@@ -44,8 +47,6 @@
       fzf
       discord
       obsidian
-      whatsapp-for-mac
-      rpi-imager
       inputs.agenix.packages."${system}".default
     ];
 

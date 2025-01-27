@@ -27,6 +27,7 @@ in
         inputs.agenix.darwinModules.default
         ./machines/darwin
         ./machines/darwin/${machineHostname}
+        inputs.mac-app-util.darwinModules.default
         inputs.home-manager-darwin.darwinModules.home-manager
         (inputs.nixpkgs-darwin.lib.attrsets.recursiveUpdate (homeManagerCfg true extraHmModules) {
           home-manager.users.granar.home.homeDirectory =
