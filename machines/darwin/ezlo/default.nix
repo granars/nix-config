@@ -33,7 +33,7 @@
       "zen-browser"
     ];
     masApps = {
-        "CotEditor" = 1024640650;
+      "CotEditor" = 1024640650;
     };
    };
     environment.systemPackages = with pkgs; [

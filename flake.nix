@@ -49,7 +49,7 @@
       inherit (helpers) mkMerge mkNixos mkDarwin;
     in
     mkMerge [
-      (mkDarwin "ezlo" inputs.nixpkgs-darwin
+      (mkDarwin "granar" inputs.nixpkgs-darwin
         # [
         #   dots/tmux
         #   dots/kitty

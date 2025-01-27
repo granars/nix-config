@@ -5,11 +5,11 @@ let
     home-manager.extraSpecialArgs = {
       inherit inputs;
     };
-    home-manager.users.ezlo.imports = [
+    home-manager.users.granar.imports = [
       inputs.agenix.homeManagerModules.default
       inputs.nix-index-database.hmModules.nix-index
-      ./users/ezlo/dots.nix
-      ./users/ezlo/age.nix
+      ./users/granar/dots.nix
+      ./users/granar/age.nix
     ] ++ extraImports;
     home-manager.backupFileExtension = "bak";
     home-manager.useUserPackages = userPackages;
@@ -29,8 +29,8 @@ in
         ./machines/darwin/${machineHostname}
         inputs.home-manager-darwin.darwinModules.home-manager
         (inputs.nixpkgs-darwin.lib.attrsets.recursiveUpdate (homeManagerCfg true extraHmModules) {
-          home-manager.users.ezlo.home.homeDirectory =
-            inputs.nixpkgs-darwin.lib.mkForce "/Users/ezlo";
+          home-manager.users.granar.home.homeDirectory =
+            inputs.nixpkgs-darwin.lib.mkForce "/Users/granar";
         })
       ];
     };

@@ -42,15 +42,13 @@
       dock = {
         # Quick Note on the bottom right hot corner
         # wvous-br-corner = 14;
-        # tilesize = 50;
+        tilesize = 40;
         autohide = true;
       };
       NSGlobalDomain = {
-        "com.apple.sound.beep.volume" = 0.0;
         InitialKeyRepeat = 13;
         KeyRepeat = 2;
       };
-        loginwindow.GuestEnabled = false;
     };
     activationScripts.postUserActivation.text = ''
       # Following line should allow us to avoid a logout/login cycle
