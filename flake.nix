@@ -1,93 +1,60 @@
 {
-  description = "Example nix-darwin system flake";
-
+  nixConfig = {
+    trusted-substituters = [
+      "https://cachix.cachix.org"
+      "https://nixpkgs.cachix.org"
+      "https://nix-community.cachix.org"
+    ];
+    trusted-public-keys = [
+      "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
+      "nixpkgs.cachix.org-1:q91R6hxbwFvDqTSDKwDAV4T5PxqXGxswD8vhONFMeOE="
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+    ];
+  };
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nix-darwin.url = "github:LnL7/nix-darwin/master";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    mac-app-util.url = "github:hraban/mac-app-util";
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-  };
-
-  outputs = inputs@{ self, nix-darwin, nixpkgs, mac-app-util, nix-homebrew }:
-  let
-    configuration = { pkgs, config, ... }: {
-
-      # Automatic Cleanup
-      nix.gc.automatic = true;
-      nix.gc.interval = {
-        Hour = 3;
-      };
-      nix.gc.options = "--delete-older-than 10d";
-      nix.optimise.automatic = true;
-      
-      # Packages
-      nixpkgs.config.allowUnfree = true;
-
-      environment.systemPackages = [ 
-	      pkgs.alacritty
-        ];
-
-      fonts.packages = [
-	      pkgs.nerd-fonts.jetbrains-mono
-        ];
-
-      homebrew = {
-          enable = true;
-          brews = [
-            "mas"
-          ];
-          casks = [
-            "iina"
-          ];
-          masApps = {
-              "CotEditor" = 1024640650;
-          };
-          onActivation.cleanup = "zap";
-          onActivation.autoUpdate = true;
-          onActivation.upgrade = true;
-      };
-
-      # System Settings
-      system.defaults = {
-        dock.autohide = true;
-        finder.FXPreferredViewStyle = "clmv";
-        loginwindow.GuestEnabled = false;
-        NSGlobalDomain.AppleInterfaceStyle = "Dark" ;
-        NSGlobalDomain.KeyRepeat = 2;
-      };
-
-      # Necessary for using flakes on this system.
-      nix.settings.experimental-features = "nix-command flakes";
-
-      # Enable alternative shell support in nix-darwin.
-	    programs.zsh.enable = true;
-
-      # Set Git commit hash for darwin-version.
-      system.configurationRevision = self.rev or self.dirtyRev or null;
-
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 5;
-
-      # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "aarch64-darwin";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin/nix-darwin-24.11";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
-  in
-  {
-    darwinConfigurations."Ezlo" = nix-darwin.lib.darwinSystem {
-      modules = [ 
-        configuration
-        mac-app-util.darwinModules.default
-        nix-homebrew.darwinModules.nix-homebrew
-        {
-          nix-homebrew = {
-              enable = true;
-              enableRosetta = true;
-              user = "ezlo";
-          };
-        }
-       ];
+    home-manager = {
+      url = "github:nix-community/home-manager/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager-darwin = {
+      url = "github:nix-community/home-manager/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
+    };
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    secrets = {
+      url = "git+ssh://git@github.com/granars/nix-private.git";
+      flake = false;
+    };
+
   };
+  
+  outputs =
+    { ... }@inputs:
+    let
+      helpers = import ./flakeHelpers.nix inputs;
+      inherit (helpers) mkMerge mkNixos mkDarwin;
+    in
+    mkMerge [
+      (mkDarwin "ezlo" inputs.nixpkgs-darwin
+        # [
+        #   dots/tmux
+        #   dots/kitty
+        # ]
+        # [ ]
+      )
+    ];
 }
