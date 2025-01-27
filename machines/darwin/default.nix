@@ -6,10 +6,9 @@
       allowUnfreePredicate = (_: true);
     };
   };
-}
 
   nix = {
-    settings = {
+      settings = {
       max-jobs = "auto";
       trusted-users = [
         "root"
@@ -17,10 +16,8 @@
         "@admin"
       ];
     };
+  };
 }
-
-
-
 
 #       # Automatic Cleanup
 #       nix.gc.automatic = true;
