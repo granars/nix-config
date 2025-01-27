@@ -47,12 +47,12 @@
       fzf
       discord
       obsidian
+      ollama
       inputs.agenix.packages."${system}".default
     ];
 
     fonts.packages = [
-      (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-      # New pkgs.nerd-fonts.jetbrains-mono
+      pkgs.nerd-fonts.jetbrains-mono
     ];
 
   services.nix-daemon.enable = lib.mkForce true;
