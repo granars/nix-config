@@ -39,22 +39,26 @@
       url = "git+ssh://git@github.com/granars/nix-private.git";
       flake = false;
     };
-
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
   };
   
   outputs =
     { ... }@inputs:
     let
       helpers = import ./flakeHelpers.nix inputs;
-      inherit (helpers) mkMerge mkNixos mkDarwin;
+      inherit (helpers) mkMerge mkDarwin;
     in
     mkMerge [
-      (mkDarwin "granar" inputs.nixpkgs-darwin
-        # [
+      (mkDarwin "ezlo" inputs.nixpkgs-darwin
+        [
         #   dots/tmux
         #   dots/kitty
-        # ]
-        # [ ]
+        ]
+        [ ]
       )
     ];
 }

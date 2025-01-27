@@ -9,8 +9,6 @@
     ulimit -n 2048
   '';
 
-  imports = [ ./work.nix ];
-
   homebrew = {
     enable = true;
     onActivation = {

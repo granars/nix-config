@@ -23,7 +23,7 @@ in
         inherit inputs;
       };
       modules = [
-        "${inputs.secrets}/default.nix"
+        #"${inputs.secrets}/default.nix"
         inputs.agenix.darwinModules.default
         ./machines/darwin
         ./machines/darwin/${machineHostname}
