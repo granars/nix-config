@@ -1,1 +1,5 @@
-hosts/ezlo/.DS_Store
+*~
+.Trash-1000
+..bfg-report
+.DS_Store
+secrets
