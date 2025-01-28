@@ -39,6 +39,10 @@
     ];
     masApps = {
       "CotEditor" = 1024640650;
+      "Scrobbles" = 1344679160;
+      "Infuse" = 1136220934;
+      "Wipr" = 1662217862;
+      "Noir" = 1592917505;
     };
    };
     environment.systemPackages = with pkgs; [
