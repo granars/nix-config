@@ -36,7 +36,9 @@
       "raspberry-pi-imager"
       "whatsapp"
       "visual-studio-code"
-    ];
+      "nextcloud"    
+      "ollama"
+      ];
     masApps = {
       "CotEditor" = 1024640650;
       "Scrobbles" = 1344679160;
@@ -50,7 +52,6 @@
       git-crypt
       discord
       obsidian
-      ollama
       inputs.agenix.packages."${system}".default
     ];
 

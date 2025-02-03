@@ -52,6 +52,7 @@
         ipp = "curl ipinfo.io/ip";
         aspm = "sudo lspci -vv | awk '/ASPM/{print $0}' RS= | grep --color -P '(^[a-z0-9:.]+|ASPM )'";
         mkdir = "mkdir -p";
+        olfix = "launchctl setenv OLLAMA_HOST \"0.0.0.0\"";
         # Only do `nix flake update` if flake.lock hasn't been updated within an hour
         deploy-nix = "f() { if [[ $(find . -mmin -60 -type f -name flake.lock | wc -c) -eq 0 ]]; then nix flake update; fi && deploy .#$1 --remote-build -s --auto-rollback false && rsync -ax --delete ./ $1:/etc/nixos/ };f";
       };
