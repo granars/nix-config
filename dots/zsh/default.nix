@@ -55,6 +55,7 @@
         olfix = "launchctl setenv OLLAMA_HOST \"0.0.0.0\"";
         # Only do `nix flake update` if flake.lock hasn't been updated within an hour
         deploy-nix = "f() { if [[ $(find . -mmin -60 -type f -name flake.lock | wc -c) -eq 0 ]]; then nix flake update; fi && deploy .#$1 --remote-build -s --auto-rollback false && rsync -ax --delete ./ $1:/etc/nixos/ };f";
+        flake-update = "nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update --flake ~/nix";
       };
 
       plugins = [
@@ -82,7 +83,7 @@
         if [ $(uname) = "Darwin" ]; then 
           path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
         fi
-        
+
         # Keybindings
         bindkey -e
         bindkey '^p' history-search-backward
