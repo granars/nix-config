@@ -41,6 +41,7 @@
       "ollama"
       "runelite"
       "jagex"
+      "obsidian"
       ];
     masApps = {
       "CotEditor" = 1024640650;
@@ -54,7 +55,6 @@
       git
       git-crypt
       discord
-      obsidian
       inputs.agenix.packages."${system}".default
     ];
 
@@ -62,7 +62,7 @@
       pkgs.nerd-fonts.jetbrains-mono
     ];
 
-  services.nix-daemon.enable = lib.mkForce true;
+  #services.nix-daemon.enable = lib.mkForce true;
 
   system.stateVersion = 5;
 }

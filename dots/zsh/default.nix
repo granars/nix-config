@@ -79,7 +79,9 @@
         # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
       
-        eval "$(/opt/homebrew/bin/brew shellenv)"
+        if [ $(uname) = "Darwin" ]; then 
+          path=("$HOME/.nix-profile/bin" "/run/wrappers/bin" "/etc/profiles/per-user/$USER/bin" "/nix/var/nix/profiles/default/bin" "/run/current-system/sw/bin" "/opt/homebrew/bin" $path)
+        fi
         
         # Keybindings
         bindkey -e
