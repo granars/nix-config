@@ -16,6 +16,7 @@
       cleanup = "zap";
       upgrade = true;
     };
+    brewPrefix = "/opt/homebrew/bin";
     caskArgs = {
       no_quarantine = true;
     };
@@ -38,6 +39,8 @@
       "visual-studio-code"
       "nextcloud"    
       "ollama"
+      "runelite"
+      "jagex"
       ];
     masApps = {
       "CotEditor" = 1024640650;
