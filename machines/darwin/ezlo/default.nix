@@ -55,6 +55,7 @@
       git
       git-crypt
       discord
+      upscayl
       inputs.agenix.packages."${system}".default
     ];
 

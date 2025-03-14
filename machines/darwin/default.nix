@@ -15,6 +15,10 @@
         "granar"
         "@admin"
       ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
     gc = {
       automatic = true;
