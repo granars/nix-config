@@ -64,5 +64,6 @@
 
   #services.nix-daemon.enable = lib.mkForce true;
 
+  system.primaryUser = "granar";
   system.stateVersion = 5;
 }
