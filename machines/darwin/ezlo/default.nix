@@ -26,7 +26,6 @@
     casks = [
       "iina"
       "tailscale"
-      "raycast"
       "zen-browser"
       "balenaetcher"
       "1password"
