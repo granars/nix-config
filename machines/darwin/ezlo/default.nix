@@ -26,7 +26,6 @@
     casks = [
       "iina"
       "tailscale"
-      "zen-browser"
       "balenaetcher"
       "1password"
       "istat-menus"
@@ -53,6 +52,8 @@
     environment.systemPackages = with pkgs; [
       git
       git-crypt
+      caligula
+      astroterm
       discord
       upscayl
       inputs.agenix.packages."${system}".default
