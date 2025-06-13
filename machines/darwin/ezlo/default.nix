@@ -54,6 +54,7 @@
       git-crypt
       caligula
       astroterm
+      pastel
       discord
       upscayl
       inputs.agenix.packages."${system}".default

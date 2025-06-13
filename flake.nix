@@ -12,7 +12,7 @@
     ];
   };
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nix-darwin = {
@@ -20,7 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager-darwin = {
@@ -54,7 +54,7 @@
     { ... }@inputs:
     let
       helpers = import ./flakeHelpers.nix inputs;
-      inherit (helpers) mkMerge mkDarwin;
+      inherit (helpers) mkMerge mkNixos mkDarwin;
     in
     mkMerge [
       (mkDarwin "ezlo" inputs.nixpkgs-darwin
@@ -64,5 +64,8 @@
         ]
         [ ]
       )
+      (mkNixos "medli" inputs.nixpkgs [
+        inputs.home-manager.nixosModules.home-manager
+      ])
     ];
 }

@@ -36,6 +36,29 @@ in
       ];
     };
   };
+    mkNixos = machineHostname: nixpkgsVersion: extraModules: rec {
+    deploy.nodes.${machineHostname} = {
+      hostname = machineHostname;
+      profiles.system = {
+        user = "root";
+        sshUser = "granar";
+        path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos nixosConfigurations.${machineHostname};
+      };
+    };
+    nixosConfigurations.${machineHostname} = nixpkgsVersion.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs;
+      };
+      modules = [
+        ./machines/nixos/_common
+        ./machines/nixos/${machineHostname}
+        inputs.agenix.nixosModules.default
+        ./users/granar
+        (homeManagerCfg false [ ])
+      ] ++ extraModules;
+    };
+  };
     mkMerge = inputs.nixpkgs.lib.lists.foldl' (
     a: b: inputs.nixpkgs.lib.attrsets.recursiveUpdate a b
   ) { };
