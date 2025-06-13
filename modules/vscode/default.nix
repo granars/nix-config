@@ -12,7 +12,8 @@
     vscode = {
       enable = true;
       profiles.default.extensions = with pkgs.vscode-extensions; [
-        dracula-theme.theme-dracula
+	catppuccin.catppuccin-vsc
+	catppuccin.catppuccin-vsc-icons
         ms-python.vscode-pylance
         bbenoist.nix
         ms-vscode-remote.remote-ssh
