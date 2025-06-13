@@ -67,8 +67,8 @@
   };
 
   services.tailscale = {
-    enabled = true;
-    useRoutingFeatures = client;
+    enable = true;
+    useRoutingFeatures = "client";
   };
 
   environment.systemPackages = with pkgs; [
@@ -78,6 +78,7 @@
     iotop
     nmap
     lm_sensors
+    beszel
   ];
 
 }
