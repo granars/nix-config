@@ -36,7 +36,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     secrets = {
-      url = "git+ssh://git@github.com/granars/nix-private.git";
+      url = "git+ssh://git@github.com/granars/nix-private.git/?ref=main";
       flake = false;
     };
     nix-index-database = {
