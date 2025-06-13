@@ -7,13 +7,13 @@
 {
   nix.settings.trusted-users = [ "granar" ];
 
-  age.secrets.hashedUserPassword = {
-    file = "${inputs.secrets}/hashedUserPassword.age";
-  };
+#  age.secrets.hashedUserPassword = {
+#    file = "${inputs.secrets}/hashedUserPassword.age";
+#  };
 
   users = {
     users = {
-      notthebee = {
+      granar = {
         shell = pkgs.zsh;
         uid = 1000;
         isNormalUser = true;
@@ -38,3 +38,4 @@
   programs.zsh.enable = true;
 
 }
+
