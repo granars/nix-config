@@ -20,7 +20,7 @@ in
 
   imports = [
     ../../dots/zsh/default.nix
-  #  ../../dots/vscode/default.nix
+    ../../dots/vscode/default.nix
     ./gitconfig.nix
   ];
 
