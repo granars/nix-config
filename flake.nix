@@ -47,7 +47,11 @@
       url = "github:hraban/mac-app-util";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
-
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
   
   outputs =
@@ -66,6 +70,7 @@
       )
       (mkNixos "medli" inputs.nixpkgs [
         inputs.home-manager.nixosModules.home-manager
+        inputs.plasma-manager.homeManagerModules.plasma-manager
       ])
     ];
 }

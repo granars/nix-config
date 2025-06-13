@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./home.nix
     ];
 
   # Bootloader.
@@ -101,6 +102,9 @@
     firefox
     git    
     kdePackages.kate
+    caligula
+    astroterm
+    pastel
   ];
 
   system.stateVersion = "25.05"; # Did you read the comment?
