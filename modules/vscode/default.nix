@@ -10,7 +10,7 @@
 
   programs = {
     vscode = {
-      enable = true
+      enable = true;
       profiles.default.extensions = with pkgs.vscode-extensions; [
         dracula-theme.theme-dracula
         ms-python.vscode-pylance

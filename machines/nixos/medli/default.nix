@@ -100,7 +100,6 @@
     discord
     firefox
     git    
-    vscode
     kdePackages.kate
   ];
 
