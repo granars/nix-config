@@ -19,8 +19,8 @@ in
   home = home;
 
   imports = [
-    ../../modules/zsh/default.nix
-    ../../modules/vscode/default.nix
+    ../../dots/zsh/default.nix
+    ../../dots/vscode/default.nix
     ./gitconfig.nix
   ];
 
