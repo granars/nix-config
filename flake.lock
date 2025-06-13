@@ -304,24 +304,7 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "nixpkgs-darwin": "nixpkgs-darwin",
-        "nixpkgs-unstable": "nixpkgs-unstable",
-        "secrets": "secrets"
-      }
-    },
-    "secrets": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1737986855,
-        "narHash": "sha256-Xpea/x5zW1X1K0MDDjXXtKYxuEj17js002rrJ5VShPs=",
-        "ref": "refs/heads/main",
-        "rev": "aa0bdfe6b190a1d889a6e5fab975628becad30bf",
-        "revCount": 1,
-        "type": "git",
-        "url": "ssh://git@github.com/granars/nix-private.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/granars/nix-private.git"
+        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },
     "systems": {

@@ -35,10 +35,10 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    secrets = {
-      url = "git+ssh://git@github.com/granars/nix-private.git/?ref=main";
-      flake = false;
-    };
+#    secrets = {
+#      url = "git+ssh://git@github.com/granars/nix-private.git/?ref=main";
+#      flake = false;
+#    };
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
