@@ -66,6 +66,11 @@
     };
   };
 
+  services.tailscale = {
+    enabled = true;
+    useRoutingFeatures = client;
+  };
+
   environment.systemPackages = with pkgs; [
     wget
     iperf3
