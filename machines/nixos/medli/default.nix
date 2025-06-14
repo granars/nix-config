@@ -98,6 +98,7 @@
   environment.systemPackages = with pkgs; [
     _1password-gui
     discord
+    easyeffects
     firefox
     git    
     kdePackages.kate
