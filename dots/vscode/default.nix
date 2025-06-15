@@ -6,7 +6,7 @@
   ...
 }:
 {
-  home.packages = with pkgs; [ grc ];
+  home.packages = with pkgs; [ ];
 
   programs = {
     vscode = {

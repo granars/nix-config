@@ -9,7 +9,6 @@
   home.packages = with pkgs; [ grc ];
 
   programs = {
-
     zoxide = {
       enable = true;
       enableZshIntegration = true;

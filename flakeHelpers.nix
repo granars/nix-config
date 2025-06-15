@@ -61,6 +61,7 @@ in
       modules = [
         ./machines/nixos/_common
         ./machines/nixos/${machineHostname}
+        inputs.catppuccin.nixosModules.catppuccin
         inputs.agenix.nixosModules.default
         ./users/granar
         (homeManagerCfg false ( 
