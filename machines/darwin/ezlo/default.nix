@@ -27,6 +27,7 @@
       "iina"
       "tailscale"
       "balenaetcher"
+      "betterdisplay"
       "1password"
       "istat-menus"
       "home-assistant"
