@@ -51,12 +51,6 @@
 
     krunner.activateWhenTypingOnDesktop = false;
 
-    kscreenlocker = {
-#      appearance.wallpaper = "${config.wallpaper}";
-      autoLock = false;
-      timeout = 0;
-    };
-
     kwin = {
       effects = {
         blur.enable = false;
@@ -91,10 +85,11 @@
 
     panels = [
       {
-        floating = false;
+        floating = true;
         height = 34;
         lengthMode = "fill";
         location = "top";
+        screen = "all";
         opacity = "translucent";
         widgets = [
           {
@@ -129,13 +124,12 @@
                 showAll = false;
                 shown = [
                   "org.kde.plasma.battery"
-                  "org.kde.plasma.keyboardlayout"
                   "org.kde.plasma.networkmanagement"
                   "org.kde.plasma.notifications"
                   "org.kde.plasma.volume"
+                  "org.kde.plasma.brightness"
                 ];
                 hidden = [
-                  "org.kde.plasma.brightness"
                   "org.kde.plasma.clipboard"
                   "org.kde.plasma.devicenotifier"
                   "plasmashell_microphone"
@@ -154,12 +148,12 @@
       }
     ];
 
-    powerdevil = {
+    powerdevil = { 
       AC = {
         autoSuspend.action = "nothing";
         dimDisplay.enable = false;
         powerButtonAction = "shutDown";
-        turnOffDisplay.idleTimeout = "never";
+        turnOffDisplay.idleTimeout = 600;
       };
       battery = {
         autoSuspend.action = "sleep";
@@ -175,19 +169,6 @@
     };
 
     shortcuts = {
-      ksmserver = {
-        "Lock Session" = [
-          "Screensaver"
-          "Ctrl+Alt+L"
-        ];
-        "LogOut" = [
-          "Ctrl+Alt+Q"
-        ];
-      };
-
-      "KDE Keyboard Layout Switcher" = {
-        "Switch to Next Keyboard Layout" = "Meta+Space";
-      };
 
       kwin = {
         "Overview" = "Meta+A";
@@ -240,82 +221,22 @@
           window-types = ["normal"];
         };
       }
-      {
-        apply = {
-          desktops = "Desktop_4";
-          desktopsrule = "3";
-        };
-        description = "Assign OBS to Desktop 4";
-        match = {
-          window-class = {
-            value = "com.obsproject.Studio";
-            type = "substring";
-          };
-          window-types = ["normal"];
-        };
-      }
-      {
-        apply = {
-          desktops = "Desktop_4";
-          desktopsrule = "3";
-        };
-        description = "Assign Steam to Desktop 4";
-        match = {
-          window-class = {
-            value = "steam";
-            type = "exact";
-            match-whole = false;
-          };
-          window-types = ["normal"];
-        };
-      }
-      {
-        apply = {
-          desktops = "Desktop_5";
-          desktopsrule = "3";
-        };
-        description = "Assign Steam Games to Desktop 5";
-        match = {
-          window-class = {
-            value = "steam_app_";
-            type = "substring";
-            match-whole = false;
-          };
-        };
-      }
-      {
-        apply = {
-          desktops = "Desktop_5";
-          desktopsrule = "3";
-        };
-        description = "Assign Zoom to Desktop 5";
-        match = {
-          window-class = {
-            value = "zoom";
-            type = "substring";
-          };
-          window-types = ["normal"];
-        };
-      }
     ];
 
     workspace = {
       enableMiddleClickPaste = false;
       clickItemTo = "select";
-      colorScheme = "CatppuccinMacchiatoLavender";
-      cursor.theme = "Yaru";
+      colorScheme = "CatppuccinMoccaLavender";
+      cursor.theme = "Breeze";
       splashScreen.engine = "none";
       splashScreen.theme = "none";
       tooltipDelay = 1;
-#      wallpaper = ".wallpaper";
+      wallpaper = ../../fluff/wallpapers/wallpaper.png;
     };
 
     configFile = {
       baloofilerc."Basic Settings"."Indexing-Enabled" = false;
       kdeglobals = {
-        General = {
-          BrowserApplication = "brave-browser.desktop";
-        };
         Icons = {
           Theme = "Tela-circle-dark";
         };
@@ -374,14 +295,6 @@
     dataFile = {
       "dolphin/view_properties/global/.directory"."Dolphin"."ViewMode" = 1;
       "dolphin/view_properties/global/.directory"."Settings"."HiddenFilesShown" = true;
-    };
-
-    startup.startupScript = {
-      ulauncher = {
-        text = "ulauncher --hide-window";
-        priority = 8;
-        runAlways = true;
-      };
     };
   };
 }

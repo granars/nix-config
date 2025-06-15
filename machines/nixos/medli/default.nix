@@ -108,12 +108,6 @@ in {
     caligula
     astroterm
     pastel
-    pkgs.yaru-theme
-    (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
-      [General]
-      background=${wallpaper};
-      type=image
-    '')
   ];
 
   # Fonts configuration
