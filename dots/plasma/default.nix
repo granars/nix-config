@@ -49,7 +49,10 @@
       };
     };
 
-    krunner.activateWhenTypingOnDesktop = false;
+    krunner = {
+      activateWhenTypingOnDesktop = false;
+      position = "center";
+    };
 
     kwin = {
       effects = {
@@ -80,6 +83,18 @@
       virtualDesktops = {
         number = 5;
         rows = 1;
+      };
+    };
+      
+    input = {
+      keyboard = {
+        layouts = [
+          {
+            layout = "gb";
+          }
+        ];
+        repeatDelay = 300;
+        repeatRate = 40;
       };
     };
 
@@ -113,7 +128,7 @@
               Appearance = {
                 dateDisplayFormat = "BesideTime";
                 dateFormat = "custom";
-                use24hFormat = 2;
+                use24hFormat = 1;
               };
             };
           }
@@ -232,6 +247,12 @@
       splashScreen.theme = "none";
       tooltipDelay = 1;
       wallpaper = ../../fluff/wallpapers/wallpaper.jpg;
+    };
+
+    kscreenlocker = {
+      appearance.wallpaper = ../../fluff/wallpapers/wallpaper.jpg;
+      autoLock = false;
+      timeout = 0;
     };
 
     configFile = {

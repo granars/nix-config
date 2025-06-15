@@ -88,7 +88,6 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    _1password-gui
     discord
     easyeffects
     firefox
