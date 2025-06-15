@@ -9,6 +9,8 @@ let
       inputs.agenix.homeManagerModules.default
       inputs.nix-index-database.hmModules.nix-index
       ./users/granar/dots.nix
+      ./machines/darwin/${machineHostname}/home.nix
+      ./machines/nixos/${machineHostname}/home.nix
     #  ./users/granar/age.nix
     ] ++ extraImports;
     home-manager.backupFileExtension = "bak";
