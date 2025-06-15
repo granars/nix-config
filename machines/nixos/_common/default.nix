@@ -21,7 +21,6 @@
   };
 
   imports = [
-#    ./filesystems
     ./nix
 #    ./secrets
   ];
@@ -42,21 +41,9 @@
       PermitRootLogin = "no";
     };
     ports = [ 69 ];
-    # hostKeys = [
-    #   {
-    #     path = "/persist/ssh/ssh_host_ed25519_key";
-    #     type = "ed25519";
-    #   }
-    #   {
-    #     path = "/persist/ssh/ssh_host_rsa_key";
-    #     type = "rsa";
-    #     bits = 4096;
-    #   }
-    # ];
   };
 
   programs.git.enable = true;
-  programs.htop.enable = true;
 
   security = {
     doas.enable = lib.mkDefault false;
@@ -79,6 +66,7 @@
     nmap
     lm_sensors
     beszel
+    fastfetch
   ];
 
 }
