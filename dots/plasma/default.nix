@@ -153,7 +153,7 @@
         autoSuspend.action = "nothing";
         dimDisplay.enable = false;
         powerButtonAction = "shutDown";
-        turnOffDisplay.idleTimeout = 600;
+        turnOffDisplay.idleTimeout = 1800;
       };
       battery = {
         autoSuspend.action = "sleep";
@@ -231,7 +231,7 @@
       splashScreen.engine = "none";
       splashScreen.theme = "none";
       tooltipDelay = 1;
-      wallpaper = ../../fluff/wallpapers/wallpaper.png;
+      wallpaper = ../../fluff/wallpapers/wallpaper.jpg;
     };
 
     configFile = {
