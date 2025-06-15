@@ -6,11 +6,17 @@
   ...
 }:
 {
+
   home.packages = with pkgs; [ grc ];
 
   programs = {
-    plasma.manager = {
+    plasma = {
       enable = true;
+    
+    workspace = {
+      lookAndFeel = "org.kde.breezedark.desktop";
+
+       };
     };
   };
 }

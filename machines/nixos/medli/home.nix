@@ -1,16 +1,9 @@
-{ ... }:
-let
-  home = {
-    username = "granar";
-    homeDirectory = "/home/granar";
-    stateVersion = "25.05";
-  };
-in
-{
-  home = home;
+{ config, pkgs, lib, inputs, ... }:
 
+{
   imports = [
-    ../../dots/plasma/default.nix
+    inputs.plasma-manager.homeManagerModules.plasma-manager
+    ../../../dots/plasma/default.nix
   ];
 
 }

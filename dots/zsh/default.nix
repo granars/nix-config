@@ -56,6 +56,11 @@
         # Only do `nix flake update` if flake.lock hasn't been updated within an hour
         deploy-nix = "f() { if [[ $(find . -mmin -60 -type f -name flake.lock | wc -c) -eq 0 ]]; then nix flake update; fi && deploy .#$1 --remote-build -s --auto-rollback false && rsync -ax --delete ./ $1:/etc/nixos/ };f";
         flake-update = "nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update --flake ~/nix-config";
+        nswitch = "sudo nixos-rebuild switch --flake ~/nix-config#\${hostname}";
+        dswitch = "sudo darwin-rebuild switch --flake ~/nix-config#\${hostname}";
+        ntest = "sudo nixos-rebuild test --flake ~/nix-config#\${hostname}";
+        dtest = "sudo darwin-rebuild test --flake ~/nix-config#\${hostname}";
+
       };
 
       plugins = [

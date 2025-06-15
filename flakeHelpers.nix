@@ -1,5 +1,8 @@
 inputs:
 let
+  getMachineHomeModule = path:
+    if builtins.pathExists path then [ path ] else [ ];
+
   homeManagerCfg = userPackages: extraImports: {
     home-manager.useGlobalPkgs = false;
     home-manager.extraSpecialArgs = {
@@ -9,9 +12,6 @@ let
       inputs.agenix.homeManagerModules.default
       inputs.nix-index-database.hmModules.nix-index
       ./users/granar/dots.nix
-      ./machines/darwin/${machineHostname}/home.nix
-      ./machines/nixos/${machineHostname}/home.nix
-    #  ./users/granar/age.nix
     ] ++ extraImports;
     home-manager.backupFileExtension = "bak";
     home-manager.useUserPackages = userPackages;
@@ -25,20 +25,25 @@ in
         inherit inputs;
       };
       modules = [
-        #"${inputs.secrets}/default.nix"
         inputs.agenix.darwinModules.default
         ./machines/darwin
         ./machines/darwin/${machineHostname}
         inputs.mac-app-util.darwinModules.default
         inputs.home-manager-darwin.darwinModules.home-manager
-        (inputs.nixpkgs-darwin.lib.attrsets.recursiveUpdate (homeManagerCfg true extraHmModules) {
-          home-manager.users.granar.home.homeDirectory =
-            inputs.nixpkgs-darwin.lib.mkForce "/Users/granar";
-        })
-      ];
+        (inputs.nixpkgs-darwin.lib.attrsets.recursiveUpdate
+          (homeManagerCfg true (
+            getMachineHomeModule ./machines/darwin/${machineHostname}/home.nix ++ extraHmModules
+          ))
+          {
+            home-manager.users.granar.home.homeDirectory =
+              inputs.nixpkgs-darwin.lib.mkForce "/Users/granar";
+          }
+        )
+      ] ++ extraModules;
     };
   };
-    mkNixos = machineHostname: nixpkgsVersion: extraModules: rec {
+
+  mkNixos = machineHostname: nixpkgsVersion: extraModules: rec {
     deploy.nodes.${machineHostname} = {
       hostname = machineHostname;
       profiles.system = {
@@ -47,6 +52,7 @@ in
         path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos nixosConfigurations.${machineHostname};
       };
     };
+
     nixosConfigurations.${machineHostname} = nixpkgsVersion.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
@@ -57,11 +63,14 @@ in
         ./machines/nixos/${machineHostname}
         inputs.agenix.nixosModules.default
         ./users/granar
-        (homeManagerCfg false [ ])
+        (homeManagerCfg false ( 
+          getMachineHomeModule ./machines/nixos/${machineHostname}/home.nix
+        ))
       ] ++ extraModules;
     };
   };
-    mkMerge = inputs.nixpkgs.lib.lists.foldl' (
+
+  mkMerge = inputs.nixpkgs.lib.lists.foldl' (
     a: b: inputs.nixpkgs.lib.attrsets.recursiveUpdate a b
   ) { };
 }
