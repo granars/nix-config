@@ -3,8 +3,8 @@
 {
   imports = [
     inputs.plasma-manager.homeManagerModules.plasma-manager
-    inputs.catppuccin.homeModules.catppuccin
     ../../../dots/plasma/default.nix
+    inputs.catppuccin.homeModules.catppuccin
     ../../../dots/catppuccin/default.nix
   ];
 
