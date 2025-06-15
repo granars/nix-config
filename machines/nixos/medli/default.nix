@@ -2,9 +2,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, vars, ... }:
-
-{
+{ config, pkgs, lib, vars, ... }: let
+  wallpaper = ../../../fluff/wallpapers/wallpaper.png;
+in {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -60,6 +60,18 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
+  # Excluding some KDE applications from the default install
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    ark
+    baloo-widgets
+    elisa
+    kate
+    khelpcenter
+    krdp
+    plasma-browser-integration
+    xwaylandvideobridge
+  ];
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "gb";
@@ -69,8 +81,8 @@
   # Configure console keymap
   console.keyMap = "uk";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # Disable CUPS to print documents.
+  services.printing.enable = false;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -80,31 +92,35 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   users.users."granar".openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE+Y6wfEc7+Qh0ZAJ6Bzkzl+I+WEUMn1kFQDfMKg5n3Q"
   ];
 
+  # System packages
   environment.systemPackages = with pkgs; [
     _1password-gui
     discord
     easyeffects
     firefox
-    git    
-    kdePackages.kate
+    git
     caligula
     astroterm
     pastel
+    pkgs.yaru-theme
+    (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
+      [General]
+      background=${wallpaper};
+      type=image
+    '')
+  ];
+
+  # Fonts configuration
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.meslo-lg
+    roboto
   ];
 
   system.stateVersion = "25.05"; # Did you read the comment?

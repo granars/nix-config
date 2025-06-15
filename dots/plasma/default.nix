@@ -89,8 +89,6 @@
       };
     };
 
-    overrideConfig = true;
-
     panels = [
       {
         floating = false;
@@ -164,10 +162,10 @@
         turnOffDisplay.idleTimeout = "never";
       };
       battery = {
-        autoSuspend.action = "nothing";
-        dimDisplay.enable = false;
+        autoSuspend.action = "sleep";
+        dimDisplay.enable = true;
         powerButtonAction = "shutDown";
-        turnOffDisplay.idleTimeout = "never";
+        turnOffDisplay.idleTimeout = 300;
       };
     };
 

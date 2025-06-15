@@ -5,6 +5,7 @@
   config,
   ...
 }:
+
 {
   catppuccin = {
     flavor = "mocha";
