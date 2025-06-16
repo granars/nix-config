@@ -88,6 +88,8 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
+    maliit-keyboard
+    nwg-drawer
     discord
     easyeffects
     firefox

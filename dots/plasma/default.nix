@@ -90,7 +90,7 @@
       keyboard = {
         layouts = [
           {
-            layout = "gb";
+            layout = "uk";
           }
         ];
         repeatDelay = 300;
@@ -251,8 +251,6 @@
 
     kscreenlocker = {
       appearance.wallpaper = ../../fluff/wallpapers/wallpaper.jpg;
-      autoLock = false;
-      timeout = 0;
     };
 
     configFile = {
