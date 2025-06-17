@@ -75,6 +75,7 @@
     lm_sensors
     beszel
     fastfetch
+    dysk
   ];
 
 }
