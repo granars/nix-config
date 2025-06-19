@@ -23,7 +23,19 @@ in
       serviceConfig = {
         ExecStart = "${pkgs.beszel}/bin/beszel-agent -key '${cfg.key}'";
         Restart = "on-failure";
-        User = "root";  # or another system user if needed
+      
+        # Sandboxing/security
+        KeyringMode = "private";
+        LockPersonality = true;
+        NoNewPrivileges = true;
+        ProtectClock = true;
+        ProtectHome = "read-only";
+        ProtectHostname = true;
+        ProtectKernelLogs = true;
+        ProtectSystem = "strict";
+        RemoveIPC = true;
+        RestrictSUIDSGID = true;
+      
       };
     };
   };
