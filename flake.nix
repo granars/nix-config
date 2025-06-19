@@ -53,6 +53,7 @@
       inputs.home-manager.follows = "home-manager";
     };
     catppuccin.url = "github:catppuccin/nix";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
   };
   
   outputs =

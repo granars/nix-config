@@ -63,6 +63,7 @@ in
         ./machines/nixos/${machineHostname}
         inputs.catppuccin.nixosModules.catppuccin
         inputs.agenix.nixosModules.default
+        inputs.nix-flatpak.nixosModules.nix-flatpak
         ./users/granar
         (homeManagerCfg false ( 
           getMachineHomeModule ./machines/nixos/${machineHostname}/home.nix

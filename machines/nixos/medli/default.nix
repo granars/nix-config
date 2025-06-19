@@ -84,7 +84,15 @@
 
   users.users."granar".openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE+Y6wfEc7+Qh0ZAJ6Bzkzl+I+WEUMn1kFQDfMKg5n3Q"
-  ];
+  ]; 
+  
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    # Certain features, including CLI integration and system authentication support,
+    # require enabling PolKit integration on some desktop environments (e.g. Plasma).
+    polkitPolicyOwners = [ "granar" ];
+  };
 
   # System packages
   environment.systemPackages = with pkgs; [
@@ -96,6 +104,13 @@
     caligula
     astroterm
     pastel
+    obsidian
+    nextcloud-client
+  ];
+
+  # Flatpak Packages
+  services.flatpak.packages = [
+
   ];
 
   # Fonts configuration

@@ -58,12 +58,18 @@
     useRoutingFeatures = "client";
   };
 
-  programs._1password.enable = true;
-  programs._1password-gui = {
+  # Flatpaks
+  services.flatpak.enable = true;
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+  services.flatpak.update.auto = {
     enable = true;
-    # Certain features, including CLI integration and system authentication support,
-    # require enabling PolKit integration on some desktop environments (e.g. Plasma).
-    polkitPolicyOwners = [ "granar" ];
+    onCalendar = "weekly"; # Default value
   };
 
   environment.systemPackages = with pkgs; [
@@ -73,7 +79,6 @@
     iotop
     nmap
     lm_sensors
-    beszel
     fastfetch
     dysk
   ];

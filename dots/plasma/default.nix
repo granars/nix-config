@@ -90,7 +90,7 @@
       keyboard = {
         layouts = [
           {
-            layout = "uk";
+            layout = "gb";
           }
         ];
         repeatDelay = 300;
