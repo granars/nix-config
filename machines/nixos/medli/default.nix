@@ -85,7 +85,7 @@
   users.users."granar".openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE+Y6wfEc7+Qh0ZAJ6Bzkzl+I+WEUMn1kFQDfMKg5n3Q"
   ]; 
-  
+
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
