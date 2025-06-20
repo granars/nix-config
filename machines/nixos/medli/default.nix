@@ -83,10 +83,12 @@
     pulse.enable = true;
   };
 
+  # Beszel Agent Key
   users.users."granar".openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE+Y6wfEc7+Qh0ZAJ6Bzkzl+I+WEUMn1kFQDfMKg5n3Q"
   ]; 
 
+  # Beszel Service
   services.beszel-agent = {
     enable = true;
     key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE+Y6wfEc7+Qh0ZAJ6Bzkzl+I+WEUMn1kFQDfMKg5n3Q";
