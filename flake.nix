@@ -57,7 +57,7 @@
   };
   
   outputs =
-    { flake-utils, nixpkgs, ... }@inputs:
+    { flake-utils, nixpkgs, nixpkgs-unstable, ... }@inputs:
     let
       helpers = import ./flakeHelpers.nix inputs;
       inherit (helpers) mkMerge mkNixos mkDarwin;
@@ -70,7 +70,7 @@
         ]
         [ ]
       )
-      (mkNixos "medli" inputs.nixpkgs.unstable [
+      (mkNixos "medli" inputs.nixpkgs-unstable [
         inputs.home-manager-unstable.nixosModules.home-manager
       ])
     ];
