@@ -214,7 +214,7 @@
     spectacle = {
       shortcuts = {
         captureEntireDesktop = "Meta+Ctrl+S";
-        captureRectangularRegion = "Meta+Shift+S";
+        captureRectangularRegion = "Alt+Shift+4";
         recordRegion = "Meta+Shift+R";
       };
     };
