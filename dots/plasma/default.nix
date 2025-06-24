@@ -52,6 +52,9 @@
     krunner = {
       activateWhenTypingOnDesktop = false;
       position = "center";
+      shortcuts = {
+        launch = "Alt+Space";
+      };
     };
 
     kwin = {
@@ -213,8 +216,8 @@
 
     spectacle = {
       shortcuts = {
-        captureEntireDesktop = "Meta+Ctrl+S";
-        captureRectangularRegion = "Alt+Shift+4";
+        captureEntireDesktop = "Meta+Ctrl+3";
+        captureRectangularRegion = "Meta+Shift+4";
         recordRegion = "Meta+Shift+R";
       };
     };
@@ -260,7 +263,7 @@
           Theme = "Tela-circle-dark";
         };
         KDE = {
-          AnimationDurationFactor = 0;
+          AnimationDurationFactor = 1;
         };
       };
       klipperrc.General.MaxClipItems = 1000;
@@ -289,7 +292,7 @@
           Size = 8;
         };
         "Script-krohnkite" = {
-          floatingClass = "ulauncher,brave-nngceckbapebfimnlniiiahkandclblb-Default";
+          floatingClass = "ulauncher";
           screenGapBetween = 3;
           screenGapBottom = 3;
           screenGapLeft = 3;
@@ -304,7 +307,7 @@
       spectaclerc = {
         Annotations.annotationToolType = 8;
         General = {
-          launchAction = "DoNotTakeScreenshot";
+          launchAction = "TakeRectangularRegionScreenshot";
           showCaptureInstructions = false;
           showMagnifier = "ShowMagnifierAlways";
         };

@@ -15,6 +15,9 @@ in
 
   # Fingerprint
   services.fprintd.enable = true;
+  security.pam.services.sddm.fprintAuth = true;
+  security.pam.services.login.fprintAuth = true;
+  security.pam.services.kde.fprintAuth = true;
 
   # Bluetooth
   hardware.bluetooth.enable = true;
