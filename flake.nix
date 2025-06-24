@@ -16,7 +16,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
+      url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     home-manager = {
@@ -57,7 +57,7 @@
   };
   
   outputs =
-    { ... }@inputs:
+    { flake-utils, nixpkgs, ... }@inputs:
     let
       helpers = import ./flakeHelpers.nix inputs;
       inherit (helpers) mkMerge mkNixos mkDarwin;

@@ -29,17 +29,11 @@ in
         ./machines/darwin
         ./machines/darwin/${machineHostname}
         inputs.mac-app-util.darwinModules.default
-        inputs.home-manager-darwin.darwinModules.home-manager
-        (inputs.nixpkgs-darwin.lib.attrsets.recursiveUpdate
-          (homeManagerCfg true (
-            getMachineHomeModule ./machines/darwin/${machineHostname}/home.nix ++ extraHmModules
-          ))
-          {
-            home-manager.users.granar.home.homeDirectory =
-              inputs.nixpkgs-darwin.lib.mkForce "/Users/granar";
-          }
-        )
-      ] ++ extraModules;
+        inputs.home-manager-unstable.darwinModules.home-manager
+        (nixpkgsVersion.lib.attrsets.recursiveUpdate (homeManagerCfg true extraHmModules) {
+          home-manager.users.granar.home.homeDirectory = nixpkgsVersion.lib.mkForce "/Users/granar";
+        })
+      ];
     };
   };
 
