@@ -70,7 +70,7 @@
         ]
         [ ]
       )
-      (mkNixos "medli" inputs.nixpkgs [
+      (mkNixos "medli" inputs.nixpkgs.unstable [
         inputs.home-manager.nixosModules.home-manager
       ])
     ];
