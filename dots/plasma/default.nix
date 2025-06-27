@@ -10,13 +10,14 @@
   home.packages = with pkgs; [ 
     (catppuccin-kde.override {
       flavour = ["mocha"];
-      accents = ["lavender"];
+      accents = ["mauve"];
     })
     kara
     kde-rounded-corners
     kdePackages.krohnkite
     kdotool
     tela-circle-icon-theme
+    catppuccin-cursors.mochaDark
     ];
 
    programs.plasma = {
@@ -25,15 +26,15 @@
     fonts = {
       fixedWidth = {
         family = "JetBrainsMono Nerd Font Mono";
-        pointSize = 11;
+        pointSize = 12;
       };
       general = {
         family = "Roboto";
-        pointSize = 11;
+        pointSize = 12;
       };
       menu = {
         family = "Roboto";
-        pointSize = 11;
+        pointSize = 12;
       };
       small = {
         family = "Roboto";
@@ -41,11 +42,11 @@
       };
       toolbar = {
         family = "Roboto";
-        pointSize = 11;
+        pointSize = 12;
       };
       windowTitle = {
         family = "Roboto";
-        pointSize = 11;
+        pointSize = 12;
       };
     };
 
@@ -104,7 +105,7 @@
     panels = [
       {
         floating = true;
-        height = 34;
+        height = 38;
         lengthMode = "fill";
         location = "top";
         screen = "all";
@@ -244,8 +245,8 @@
     workspace = {
       enableMiddleClickPaste = false;
       clickItemTo = "select";
-      colorScheme = "CatppuccinMoccaLavender";
-      cursor.theme = "Breeze";
+      colorScheme = "CatppuccinMoccaMauve";
+      cursor.theme = "catppuccin-mocha-dark-cursors";
       splashScreen.engine = "none";
       splashScreen.theme = "none";
       tooltipDelay = 1;
