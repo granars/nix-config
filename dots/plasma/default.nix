@@ -126,7 +126,6 @@
             };
           }
           "org.kde.plasma.panelspacer"
-          "org.kde.plasma.kickerdash" 
           {
             name = "org.kde.plasma.digitalclock";
             config = {
@@ -138,6 +137,7 @@
             };
           }
           "org.kde.plasma.panelspacer"
+          "org.kde.plasma.kickerdash" 
           {
             systemTray = {
               items = {

@@ -72,6 +72,7 @@
       )
       (mkNixos "medli" inputs.nixpkgs-unstable [
         inputs.home-manager-unstable.nixosModules.home-manager
+        ./modules/beszel
       ])
     ];
 }

@@ -6,7 +6,6 @@ in
   imports =
     [
       ./hardware-configuration.nix
-      ../../../modules/beszel
     ];
 
   # Bootloader.
@@ -34,6 +33,23 @@ in
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = "medli"; # Define your hostname.
+
+  # Graphics
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # For Gen11+ Xe iGPU
+      intel-vaapi-driver
+      intel-compute-runtime # OpenCL filter support (hardware tonemapping and subtitle burn-in)
+      vaapiVdpau        
+      vpl-gpu-rt # QSV on 11th gen or newer
+    ];
+  };
+
+  # Power Tuning / Management
+  powerManagement.powertop.enable = true; # enable powertop auto tuning on startup.
+  services.system76-scheduler.settings.cfsProfiles.enable = true; # Better scheduling for CPU cycles - thanks System76!!!
+  services.thermald.enable = true; # Enable thermald, the temperature management daemon. (only necessary if on Intel CPUs)
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -123,7 +139,6 @@ in
       type=image
     '')
     maliit-keyboard
-    nwg-drawer
     discord
     easyeffects
     firefox
