@@ -1,12 +1,45 @@
 { config, pkgs, lib, vars, ... }:
 let
   wallpaper = ../../../fluff/wallpapers/wallpaper.jpg;
+  beszelkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE+Y6wfEc7+Qh0ZAJ6Bzkzl+I+WEUMn1kFQDfMKg5n3Q";
 in
 {
   imports =
     [
       ./hardware-configuration.nix
     ];
+ 
+  # System packages
+  environment.systemPackages = with pkgs; [
+    # This writes the override config file into the Breeze theme directory
+    (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
+      [General]
+      background=${wallpaper}
+      type=image
+    '')
+    astroterm
+    caligula
+    discord
+    easyeffects
+    firefox
+    maliit-keyboard
+    mullvad-browser
+    nextcloud-client
+    obsidian
+    pastel
+  ];
+
+  # Flatpak Packages
+  services.flatpak.packages = [
+
+  ];
+
+  # Fonts configuration
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.meslo-lg
+    roboto
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -45,35 +78,27 @@ in
       vpl-gpu-rt # QSV on 11th gen or newer
     ];
   };
+  
+  # Enable sound with pipewire.
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   # Power Tuning / Management
   powerManagement.powertop.enable = true; # enable powertop auto tuning on startup.
   services.system76-scheduler.settings.cfsProfiles.enable = true; # Better scheduling for CPU cycles - thanks System76!!!
   services.thermald.enable = true; # Enable thermald, the temperature management daemon. (only necessary if on Intel CPUs)
 
-  # Set your time zone.
-  time.timeZone = "Europe/London";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_GB.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
-  };
-
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session
   services.xserver.enable = false;
 
-# Enabe and configure SDDM 
+  # Enabe and configure SDDM 
   services.displayManager.sddm = {
     enable = true;
     enableHidpi = true;
@@ -95,31 +120,18 @@ in
     xwaylandvideobridge
   ];
 
-  # Configure console keymap
-  console.keyMap = "uk";
-
   # Disable CUPS to print documents.
   services.printing.enable = false;
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
   # Beszel Agent Key
   users.users."granar".openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE+Y6wfEc7+Qh0ZAJ6Bzkzl+I+WEUMn1kFQDfMKg5n3Q"
+    beszelkey
   ]; 
 
   # Beszel Service
   services.beszel-agent = {
     enable = true;
-    key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE+Y6wfEc7+Qh0ZAJ6Bzkzl+I+WEUMn1kFQDfMKg5n3Q";
+    key = beszelkey;
   };
 
   programs._1password.enable = true;
@@ -130,35 +142,4 @@ in
     polkitPolicyOwners = [ "granar" ];
   };
 
-  # System packages
-  environment.systemPackages = with pkgs; [
-    # This writes the override config file into the Breeze theme directory
-    (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
-      [General]
-      background=${wallpaper}
-      type=image
-    '')
-    maliit-keyboard
-    discord
-    easyeffects
-    firefox
-    mullvad-browser
-    caligula
-    astroterm
-    pastel
-    obsidian
-    nextcloud-client
-  ];
-
-  # Flatpak Packages
-  services.flatpak.packages = [
-
-  ];
-
-  # Fonts configuration
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.meslo-lg
-    roboto
-  ];
 }

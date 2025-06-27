@@ -24,8 +24,17 @@
     ./nix
 #    ./secrets
   ];
-
-  time.timeZone = "Europe/London";
+ 
+  environment.systemPackages = with pkgs; [
+    btop
+    dysk
+    fastfetch
+    iperf3
+    iotop
+    lm_sensors
+    nmap
+    wget
+  ];
 
   # users.users = {
   #   root = {
@@ -33,6 +42,7 @@
   #   };
   # };
   
+  # SSH
   services.openssh = {
     enable = lib.mkDefault true;
     settings = {
@@ -42,8 +52,6 @@
     };
     ports = [ 69 ];
   };
-
-  programs.git.enable = true;
 
   security = {
     doas.enable = lib.mkDefault false;
@@ -71,16 +79,22 @@
     enable = true;
     onCalendar = "weekly"; # Default value
   };
+  
+  # Localisation
+  time.timeZone = "Europe/London";
+  i18n.defaultLocale = "en_GB.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_GB.UTF-8";
+    LC_IDENTIFICATION = "en_GB.UTF-8";
+    LC_MEASUREMENT = "en_GB.UTF-8";
+    LC_MONETARY = "en_GB.UTF-8";
+    LC_NAME = "en_GB.UTF-8";
+    LC_NUMERIC = "en_GB.UTF-8";
+    LC_PAPER = "en_GB.UTF-8";
+    LC_TELEPHONE = "en_GB.UTF-8";
+    LC_TIME = "en_GB.UTF-8";
+  };
 
-  environment.systemPackages = with pkgs; [
-    wget
-    iperf3
-    btop
-    iotop
-    nmap
-    lm_sensors
-    fastfetch
-    dysk
-  ];
-
+  # Configure console keymap
+  console.keyMap = "uk";
 }
