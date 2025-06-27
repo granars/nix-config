@@ -127,6 +127,7 @@ in
     discord
     easyeffects
     firefox
+    mullvad-browser
     caligula
     astroterm
     pastel
