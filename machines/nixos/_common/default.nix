@@ -32,6 +32,7 @@
     iperf3
     iotop
     lm_sensors
+    powertop
     nmap
     wget
   ];
