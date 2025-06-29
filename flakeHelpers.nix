@@ -60,6 +60,7 @@ in
         inputs.nix-flatpak.nixosModules.nix-flatpak
         ./users/granar
         (homeManagerCfg false ( 
+          ./machines/nixos/_commonhome
           getMachineHomeModule ./machines/nixos/${machineHostname}/home.nix
         ))
       ] ++ extraModules;
