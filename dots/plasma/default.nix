@@ -170,7 +170,7 @@
 
     powerdevil = { 
       AC = {
-        autoSuspend.action = "nothing";
+        autoSuspend.action = "sleep";
         dimDisplay.enable = false;
         powerButtonAction = "shutDown";
         turnOffDisplay.idleTimeout = 1800;
