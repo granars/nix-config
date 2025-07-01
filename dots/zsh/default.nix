@@ -5,8 +5,16 @@
   config,
   ...
 }:
+let
+  isDarwin = pkgs.stdenv.isDarwin;
+in
 {
   home.packages = with pkgs; [ grc ];
+
+  # Bitwarden SSH Agent fix for macOS
+  home.sessionVariables = lib.mkIf isDarwin {
+    SSH_AUTH_SOCK = "${config.home.homeDirectory}/.bitwarden-ssh-agent.sock";
+  };
 
   programs = {
     zoxide = {
