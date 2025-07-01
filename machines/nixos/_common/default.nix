@@ -26,6 +26,7 @@
   ];
  
   environment.systemPackages = with pkgs; [
+    bitwarden-desktop
     btop
     dysk
     fastfetch

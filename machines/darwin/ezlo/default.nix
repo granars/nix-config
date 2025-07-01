@@ -24,7 +24,6 @@
       "mas"
     ];
     casks = [
-      "iina"
       "tailscale"
       "balenaetcher"
       "betterdisplay"
@@ -37,7 +36,6 @@
       "whatsapp"
       "visual-studio-code"
       "nextcloud"    
-      "ollama"
       "runelite"
       "jagex"
       "obsidian"
@@ -52,6 +50,8 @@
     };
    };
     environment.systemPackages = with pkgs; [
+      bitwarden-desktop
+      ollama
       git
       git-crypt
       caligula
