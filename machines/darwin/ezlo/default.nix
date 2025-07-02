@@ -13,7 +13,7 @@
     enable = true;
     onActivation = {
       autoUpdate = true;
-      cleanup = "zap";
+      cleanup = "none";
       upgrade = true;
     };
     brewPrefix = "/opt/homebrew/bin";
@@ -60,6 +60,11 @@
       discord
       upscayl
     ];
+
+    services.ollama = {
+      enable = true;
+      loadModels = ["llama3.2:3b"];
+    };
 
     fonts.packages = [
       pkgs.nerd-fonts.jetbrains-mono

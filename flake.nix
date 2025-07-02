@@ -65,8 +65,7 @@
     mkMerge [
       (mkDarwin "ezlo" inputs.nixpkgs-darwin
         [
-        #   dots/tmux
-        #   dots/kitty
+          ./modules/ollama
         ]
         [ ]
       )
