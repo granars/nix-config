@@ -1,10 +1,16 @@
 {
+  config,
   inputs,
   pkgs,
   lib,
   ...
 }:
 {
+    imports =
+    [
+      ./ollama.nix
+    ];
+  
   environment.shellInit = ''
     ulimit -n 2048
   '';
