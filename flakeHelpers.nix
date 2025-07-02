@@ -33,7 +33,7 @@ in
         (nixpkgsVersion.lib.attrsets.recursiveUpdate (homeManagerCfg true extraHmModules) {
           home-manager.users.granar.home.homeDirectory = nixpkgsVersion.lib.mkForce "/Users/granar";
         })
-      ];
+      ] ++ extraModules;
     };
   };
 

@@ -63,10 +63,14 @@
       inherit (helpers) mkMerge mkNixos mkDarwin;
     in
     mkMerge [
-      (mkDarwin "ezlo" inputs.nixpkgs-darwin [
-        ./modules/ollama
+      (mkDarwin "ezlo" inputs.nixpkgs-darwin 
+      # Extra HM Modules 
+      [
       ]
-      [])
+      # Extra Modules
+      [
+        ./modules/ollama
+      ])
       (mkNixos "medli" inputs.nixpkgs-unstable [
         inputs.home-manager-unstable.nixosModules.home-manager
         ./modules/beszel

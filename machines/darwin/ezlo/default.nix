@@ -6,11 +6,6 @@
   ...
 }:
 {
-    imports =
-    [
-      ./ollama.nix
-    ];
-  
   environment.shellInit = ''
     ulimit -n 2048
   '';
@@ -69,7 +64,6 @@
 
     services.ollama = {
       enable = true;
-      loadModels = ["llama3.2:3b"];
     };
 
     fonts.packages = [
