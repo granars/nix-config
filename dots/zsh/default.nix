@@ -11,9 +11,11 @@ in
 {
   home.packages = with pkgs; [ grc ];
 
-  # Bitwarden SSH Agent fix for macOS
-  home.sessionVariables = lib.mkIf isDarwin {
+  # Bitwarden SSH Agent
+  home.sessionVariables = if isDarwin then {
     SSH_AUTH_SOCK = "${config.home.homeDirectory}/.bitwarden-ssh-agent.sock";
+  } else {
+    SSH_AUTH_SOCK = pkgs.lib.mkDefault "/home/granar/.bitwarden-ssh-agent.sock";
   };
 
   programs = {

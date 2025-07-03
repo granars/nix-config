@@ -37,7 +37,7 @@ in
     };
   };
 
-  mkNixos = machineHostname: nixpkgsVersion: extraModules: rec {
+  mkNixos = machineHostname: nixpkgsVersion: extraHmModules: extraModules: rec {
     deploy.nodes.${machineHostname} = {
       hostname = machineHostname;
       profiles.system = {
@@ -59,10 +59,13 @@ in
         inputs.agenix.nixosModules.default
         inputs.nix-flatpak.nixosModules.nix-flatpak
         ./users/granar
-        (homeManagerCfg false ( 
+      (homeManagerCfg true (
+        [
           ./machines/nixos/_commonhome
-          getMachineHomeModule ./machines/nixos/${machineHostname}/home.nix
-        ))
+        ]
+        ++ getMachineHomeModule (./machines/nixos/${machineHostname}/home.nix) 
+        ++ extraHmModules
+      ))
       ] ++ extraModules;
     };
   };

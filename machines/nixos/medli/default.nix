@@ -29,6 +29,12 @@ in
     pastel
   ];
 
+  services.pinchflat = {
+    enable = true;
+    selfhosted = true;
+    mediaDir = "${config.users.users.granar.home}/videos/pinchflat";
+  };
+
   # Flatpak Packages
   services.flatpak.packages = [
 

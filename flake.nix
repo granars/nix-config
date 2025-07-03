@@ -66,12 +66,19 @@
       (mkDarwin "ezlo" inputs.nixpkgs-darwin 
       # Extra HM Modules 
       [
+      
       ]
       # Extra Modules
       [
         ./modules/ollama
       ])
-      (mkNixos "medli" inputs.nixpkgs-unstable [
+      (mkNixos "medli" inputs.nixpkgs-unstable 
+      # Extra HM Modules
+      [
+
+      ]
+      # Extra Modules
+      [
         inputs.home-manager-unstable.nixosModules.home-manager
         ./modules/beszel
       ])
