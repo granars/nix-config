@@ -6,3 +6,4 @@ secrets
 /secrets
 .direnv
 result
+/result
