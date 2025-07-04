@@ -60,7 +60,7 @@
 
     kwin = {
       effects = {
-        blur.enable = false;
+        blur.enable = true;
         cube.enable = false;
         desktopSwitching.animation = "off";
         dimAdminMode.enable = false;
@@ -71,7 +71,7 @@
         shakeCursor.enable = false;
         slideBack.enable = false;
         snapHelper.enable = false;
-        translucency.enable = false;
+        translucency.enable = true;
         windowOpenClose.animation = "off";
         wobblyWindows.enable = false;
       };
@@ -266,6 +266,9 @@
         };
         KDE = {
           AnimationDurationFactor = 1;
+        };
+        WM = {
+          TranslucencyEnabled = true:
         };
       };
       klipperrc.General.MaxClipItems = 1000;
