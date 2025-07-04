@@ -58,8 +58,8 @@
       caligula
       astroterm
       pastel
-      discord
       upscayl
+      vesktop
     ];
 
     services.ollama = {

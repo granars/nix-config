@@ -19,7 +19,6 @@ in
     '')
     astroterm
     caligula
-    discord
     easyeffects
     firefox
     maliit-keyboard
@@ -28,6 +27,7 @@ in
     obsidian
     pastel
     pipeline
+    vesktop
   ];
 
   # Flatpak Packages
