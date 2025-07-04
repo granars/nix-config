@@ -308,6 +308,12 @@
           DelayFocusInterval = 0;
           FocusPolicy = "FocusFollowsMouse";
         };
+        Effect-Translucency = {
+          activeWindowOpacity = 70;
+          inactiveWindowOpacity = 50;
+          movingWindowOpacity = 60;
+          resizingWindowOpacity = 60;
+        }
       };
       spectaclerc = {
         Annotations.annotationToolType = 8;
