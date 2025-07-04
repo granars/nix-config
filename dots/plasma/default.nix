@@ -268,7 +268,7 @@
           AnimationDurationFactor = 1;
         };
         WM = {
-          TranslucencyEnabled = true:
+          TranslucencyEnabled = true;
         };
       };
       klipperrc.General.MaxClipItems = 1000;
@@ -313,7 +313,7 @@
           inactiveWindowOpacity = 50;
           movingWindowOpacity = 60;
           resizingWindowOpacity = 60;
-        }
+        };
       };
       spectaclerc = {
         Annotations.annotationToolType = 8;
