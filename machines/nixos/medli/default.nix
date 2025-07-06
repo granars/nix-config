@@ -27,6 +27,7 @@ in
     obsidian
     pastel
     pipeline
+    thunderbird
     vesktop
   ];
 
