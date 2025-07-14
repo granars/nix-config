@@ -76,6 +76,7 @@ in
       intel-media-driver # For Gen11+ Xe iGPU
       intel-vaapi-driver
       intel-compute-runtime # OpenCL filter support (hardware tonemapping and subtitle burn-in)
+      intel-media-sdk 
       vaapiVdpau        
       vpl-gpu-rt # QSV on 11th gen or newer
     ];
