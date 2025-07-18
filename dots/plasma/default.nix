@@ -109,7 +109,7 @@
         lengthMode = "fill";
         location = "top";
         screen = "all";
-        opacity = "translucent";
+        opacity = "adaptive";
         widgets = [
           {
             name = "org.dhruv8sh.kara";
@@ -293,7 +293,7 @@
           Size = 8;
         };
         "Script-krohnkite" = {
-          floatingClass = "ulauncher";
+          floatingClass = "ulauncher,Bitwarden,org.kde.kcalc";
           screenGapBetween = 3;
           screenGapBottom = 3;
           screenGapLeft = 3;
