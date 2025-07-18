@@ -212,14 +212,6 @@
       "services/org.kde.dolphin.desktop"."_launch" = "Meta+Shift+F";
     };
 
-    spectacle = {
-      shortcuts = {
-        captureEntireDesktop = "Meta+Ctrl+3";
-        captureRectangularRegion = "Meta+Shift+4";
-        recordRegion = "Meta+Shift+R";
-      };
-    };
-
     window-rules = [
       {
         apply = {
@@ -293,7 +285,7 @@
           Size = 8;
         };
         "Script-krohnkite" = {
-          floatingClass = "ulauncher,Bitwarden,org.kde.kcalc";
+          floatingClass = "ulauncher,Bitwarden,org.kde.kcalc,com.nextcloud.desktopclient.nextcloud";
           screenGapBetween = 3;
           screenGapBottom = 3;
           screenGapLeft = 3;
