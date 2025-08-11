@@ -48,6 +48,7 @@
       "Wipr" = 1662217862;
       "Noir" = 1592917505;
       "RollerCoaster Tycoon® Classic+" = 6702028686;
+      "DaVinci Resolve" = 571213070;
     };
    };
     environment.systemPackages = with pkgs; [
