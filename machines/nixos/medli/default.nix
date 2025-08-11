@@ -21,6 +21,7 @@ in
     caligula
     easyeffects
     firefox
+    kdePackages.qrca
     maliit-keyboard
     mullvad-browser
     nextcloud-client
