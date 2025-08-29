@@ -49,6 +49,7 @@
       "Noir" = 1592917505;
       "RollerCoaster Tycoon® Classic+" = 6702028686;
       "DaVinci Resolve" = 571213070;
+      "Amperfy Music" = 1530145038;
     };
    };
     environment.systemPackages = with pkgs; [
