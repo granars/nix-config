@@ -73,7 +73,7 @@
         ./modules/ollama
       ])
       (mkNixos "medli" inputs.nixpkgs-unstable 
-      # Extra HM Modules
+      # Extra HomeManager Modules
       [
 
       ]
