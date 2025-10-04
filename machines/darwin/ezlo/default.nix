@@ -28,7 +28,6 @@
       "tailscale"
       "balenaetcher"
       "betterdisplay"
-      "1password"
       "istat-menus"
       "home-assistant"
       "daisydisk"
@@ -67,6 +66,7 @@
 
     services.ollama = {
       enable = true;
+      host = "0.0.0.0";
     };
 
     fonts.packages = [

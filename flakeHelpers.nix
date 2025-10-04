@@ -10,7 +10,7 @@ let
     };
     home-manager.users.granar.imports = [
       inputs.agenix.homeManagerModules.default
-      inputs.nix-index-database.hmModules.nix-index
+      inputs.nix-index-database.homeModules.nix-index
       ./users/granar/dots.nix
     ] ++ extraImports;
     home-manager.backupFileExtension = "bak";
@@ -18,7 +18,7 @@ let
   };
 in
 {
-  mkDarwin = machineHostname: nixpkgsVersion: extraHmModules: extraModules: {
+  mkDarwin = machineHostname: nixpkgsVersion: extrahomeModules: extraModules: {
     darwinConfigurations.${machineHostname} = inputs.nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       specialArgs = {
@@ -30,14 +30,14 @@ in
         ./machines/darwin/${machineHostname}
         inputs.mac-app-util.darwinModules.default
         inputs.home-manager-unstable.darwinModules.home-manager
-        (nixpkgsVersion.lib.attrsets.recursiveUpdate (homeManagerCfg true extraHmModules) {
+        (nixpkgsVersion.lib.attrsets.recursiveUpdate (homeManagerCfg true extrahomeModules) {
           home-manager.users.granar.home.homeDirectory = nixpkgsVersion.lib.mkForce "/Users/granar";
         })
       ] ++ extraModules;
     };
   };
 
-  mkNixos = machineHostname: nixpkgsVersion: extraHmModules: extraModules: rec {
+  mkNixos = machineHostname: nixpkgsVersion: extrahomeModules: extraModules: rec {
     deploy.nodes.${machineHostname} = {
       hostname = machineHostname;
       profiles.system = {
@@ -64,7 +64,7 @@ in
           ./machines/nixos/_commonhome
         ]
         ++ getMachineHomeModule (./machines/nixos/${machineHostname}/home.nix) 
-        ++ extraHmModules
+        ++ extrahomeModules
       ))
       ] ++ extraModules;
     };
