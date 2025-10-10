@@ -32,11 +32,6 @@ in
     vesktop
   ];
 
-  # Flatpak Packages
-  services.flatpak.packages = [
-
-  ];
-
   # Fonts configuration
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
