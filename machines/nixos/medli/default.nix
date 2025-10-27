@@ -118,7 +118,6 @@ in
     khelpcenter
     krdp
     plasma-browser-integration
-    xwaylandvideobridge
   ];
 
   # Disable CUPS to print documents.

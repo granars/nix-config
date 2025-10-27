@@ -7,7 +7,5 @@
     ../../../dots/catppuccin/default.nix
   ];
 
-  programs.ssh = {
-    enable = true;
-  };
+  
 }
