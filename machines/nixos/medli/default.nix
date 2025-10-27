@@ -96,11 +96,12 @@ in
   # You can disable this if you're only using the Wayland session
   services.xserver.enable = false;
 
-  # Enabe and configure SDDM 
+  # Enable and configure SDDM 
   services.displayManager.sddm = {
     enable = true;
     enableHidpi = true;
     theme = "breeze";
+    wayland.enable = true;
   };
 
   # Enable the KDE Plasma Desktop Environment

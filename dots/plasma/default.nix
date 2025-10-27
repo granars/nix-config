@@ -13,7 +13,7 @@
       accents = ["mauve"];
     })
     kara
-    kde-rounded-corners
+#    kde-rounded-corners
     kdePackages.krohnkite
     kdotool
     tela-circle-icon-theme
@@ -266,24 +266,24 @@
         Plugins = {
           krohnkiteEnabled = true;
         };
-        "Round-Corners" = {
-          ActiveOutlineAlpha = 255;
-          ActiveOutlineUseCustom = false;
-          ActiveOutlineUsePalette = true;
-          ActiveSecondOutlineUseCustom = false;
-          ActiveSecondOutlineUsePalette = true;
-          DisableOutlineTile = false;
-          DisableRoundTile = false;
-          InactiveCornerRadius = 8;
-          InactiveOutlineAlpha = 0;
-          InactiveOutlineUseCustom = false;
-          InactiveOutlineUsePalette = true;
-          InactiveSecondOutlineAlpha = 0;
-          InactiveSecondOutlineThickness = 0;
-          OutlineThickness = 1;
-          SecondOutlineThickness = 0;
-          Size = 8;
-        };
+        # "Round-Corners" = {
+        #   ActiveOutlineAlpha = 255;
+        #   ActiveOutlineUseCustom = false;
+        #   ActiveOutlineUsePalette = true;
+        #   ActiveSecondOutlineUseCustom = false;
+        #   ActiveSecondOutlineUsePalette = true;
+        #   DisableOutlineTile = false;
+        #   DisableRoundTile = false;
+        #   InactiveCornerRadius = 8;
+        #   InactiveOutlineAlpha = 0;
+        #   InactiveOutlineUseCustom = false;
+        #   InactiveOutlineUsePalette = true;
+        #   InactiveSecondOutlineAlpha = 0;
+        #   InactiveSecondOutlineThickness = 0;
+        #   OutlineThickness = 1;
+        #   SecondOutlineThickness = 0;
+        #   Size = 8;
+        # };
         "Script-krohnkite" = {
           floatingClass = "ulauncher,Bitwarden,org.kde.kcalc,com.nextcloud.desktopclient.nextcloud";
           screenGapBetween = 3;
