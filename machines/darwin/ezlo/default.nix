@@ -31,6 +31,7 @@
       "istat-menus"
       "home-assistant"
       "daisydisk"
+      "gimp"
       "prusaslicer"
       "raspberry-pi-imager"
       "whatsapp"
