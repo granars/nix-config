@@ -28,6 +28,7 @@
       "tailscale"
       "balenaetcher"
       "betterdisplay"
+      "beszel-agent"
       "istat-menus"
       "home-assistant"
       "daisydisk"
