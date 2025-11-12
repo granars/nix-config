@@ -1,6 +1,5 @@
 { config, pkgs, lib, vars, ... }:
 let
-  wallpaper = ../../../fluff/wallpapers/wallpaper.jpg;
   beszelkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE+Y6wfEc7+Qh0ZAJ6Bzkzl+I+WEUMn1kFQDfMKg5n3Q";
 in
 {
@@ -11,17 +10,10 @@ in
  
   # System packages
   environment.systemPackages = with pkgs; [
-    # This writes the override config file into the Breeze theme directory
-    (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
-      [General]
-      background=${wallpaper}
-      type=image
-    '')
     astroterm
     caligula
     easyeffects
     firefox
-    kdePackages.qrca
     maliit-keyboard
     mullvad-browser
     nextcloud-client
@@ -45,9 +37,7 @@ in
 
   # Fingerprint
   services.fprintd.enable = true;
-  security.pam.services.sddm.fprintAuth = true;
   security.pam.services.login.fprintAuth = true;
-  security.pam.services.kde.fprintAuth = true;
 
   # Bluetooth
   hardware.bluetooth.enable = true;
@@ -95,31 +85,6 @@ in
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session
   services.xserver.enable = false;
-
-  # Enable and configure SDDM 
-  services.displayManager.sddm = {
-    enable = true;
-    enableHidpi = true;
-    theme = "breeze";
-    wayland.enable = true;
-  };
-
-  # Enable the KDE Plasma Desktop Environment
-  services.desktopManager.plasma6.enable = true;
-
-  # Enable KDE Connect
-  programs.kdeconnect.enable = true;
-
-  # Excluding some KDE applications from the default install
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    ark
-    baloo-widgets
-    elisa
-    kate
-    khelpcenter
-    krdp
-    plasma-browser-integration
-  ];
 
   # Disable CUPS to print documents.
   services.printing.enable = false;

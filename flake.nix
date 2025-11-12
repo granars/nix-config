@@ -75,11 +75,14 @@
       (mkNixos "medli" inputs.nixpkgs-unstable 
       # Extra HomeManager Modules
       [
-
+        ./machines/nixos/_commonhome/desktop/kde
+#        ./machines/nixos/_commonhome/desktop/niri
       ]
       # Extra Modules
       [
         inputs.home-manager-unstable.nixosModules.home-manager
+        ./machines/nixos/_common/nix/desktop/kde
+#        ./machines/nixos/_common/nix/desktop/niri
         ./modules/beszel
       ])
     ];
