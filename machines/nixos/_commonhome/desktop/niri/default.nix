@@ -1,12 +1,14 @@
 { config, pkgs, lib, inputs, ... }:
 let
-  wallpaper = ../../../../../../fluff/wallpapers/wallpaper.jpg;
+  wallpaper = ../../../../../fluff/wallpapers/wallpaper.jpg;
 in
 {
-  home-manager.users.granar = {
+
     imports = [
       inputs.noctalia.homeModules.default
     ];
+
+ # programs.noctalia-shell.systemd.enable = true;
 
     programs.noctalia-shell = {
       enable = true;
@@ -125,7 +127,7 @@ in
           enableMultiMonitorDirectories = false;
           recursiveSearch = false;
           setWallpaperOnAllMonitors = true;
-          defaultWallpaper = ${wallpaper};
+          defaultWallpaper = "${wallpaper}";
           fillMode = "crop";
           fillColor = "#000000";
           randomEnabled = false;
@@ -259,10 +261,10 @@ in
           generateTemplatesForPredefined = true;
         };
         templates = {
-          gtk = false;
-          qt = false;
+          gtk = true;
+          qt = true;
           kcolorscheme = false;
-          alacritty = false;
+          alacritty = true;
           kitty = false;
           ghostty = false;
           foot = false;
@@ -300,6 +302,5 @@ in
           chargingMode = 0;
         };
       };
-    };
   };
 }

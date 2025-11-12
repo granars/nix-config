@@ -1,4 +1,4 @@
-{ config, pkgs, lib, vars, ... }:
+{ config, pkgs, lib, vars, inputs, ... }:
 let
  # wallpaper = ../../../../../../fluff/wallpapers/wallpaper.jpg;
 in
@@ -6,13 +6,12 @@ in
 {
   imports =
     [
-
     ];
-
+  
+  # System packages
   environment.systemPackages = with pkgs; [
-    inputs.noctalia.packages.default
+    inputs.noctalia.packages.${system}.default
+    alacritty
   ];
-    
     programs.niri.enable = true;
-
 }
