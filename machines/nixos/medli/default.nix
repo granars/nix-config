@@ -61,7 +61,7 @@ in
     extraPackages = with pkgs; [
       intel-media-driver # For Gen11+ Xe iGPU
       intel-compute-runtime # OpenCL filter support (hardware tonemapping and subtitle burn-in)
-      vaapiVdpau        
+      libva-vdpau-driver        
       vpl-gpu-rt # QSV on 11th gen or newer
     ];
   };

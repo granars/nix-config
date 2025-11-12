@@ -1,6 +1,6 @@
 { config, pkgs, lib, vars, ... }:
 let
-  wallpaper = ../../../fluff/wallpapers/wallpaper.jpg;
+  wallpaper = ../../../../../../fluff/wallpapers/wallpaper.jpg;
 in
 
 {
@@ -48,4 +48,4 @@ in
     krdp
     plasma-browser-integration
   ];
-};
+}
