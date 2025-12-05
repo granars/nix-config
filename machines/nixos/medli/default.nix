@@ -81,6 +81,8 @@ in
   services.system76-scheduler.settings.cfsProfiles.enable = true; # Better scheduling for CPU cycles - thanks System76!!!
   services.thermald.enable = true; # Enable thermald, the temperature management daemon. (only necessary if on Intel CPUs)
   services.thermald.ignoreCpuidCheck = true;
+  services.tuned.enable = true;
+  services.upower.enable = true;
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session
