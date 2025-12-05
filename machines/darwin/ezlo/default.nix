@@ -55,7 +55,6 @@
    };
     environment.systemPackages = with pkgs; [
       bitwarden-desktop
-      ollama
       git
       git-crypt
       caligula
