@@ -62,7 +62,6 @@
       pastel
       upscayl
       vesktop
-      thunderbird
     ];
 
     services.ollama = {
