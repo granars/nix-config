@@ -25,10 +25,9 @@
       "mas"
     ];
     casks = [
-      "tailscale"
+      "tailscale-app"
       "balenaetcher"
       "betterdisplay"
-      "beszel-agent"
       "istat-menus"
       "home-assistant"
       "daisydisk"
