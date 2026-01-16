@@ -45,9 +45,7 @@
     };
     mac-app-util = {
       url = "github:hraban/mac-app-util";
-      # Temp Fix 05/12/2025
-      inputs.cl-nix-lite.url = "github:r4v3n6101/cl-nix-lite/url-fix";
-     # inputs.nixpkgs.follows = "nixpkgs-darwin";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
@@ -61,7 +59,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  
+
   outputs =
     { flake-utils, nixpkgs, nixpkgs-unstable, ... }@inputs:
     let
@@ -69,16 +67,16 @@
       inherit (helpers) mkMerge mkNixos mkDarwin;
     in
     mkMerge [
-      (mkDarwin "ezlo" inputs.nixpkgs-darwin 
-      # Extra HM Modules 
+      (mkDarwin "ezlo" inputs.nixpkgs-darwin
+      # Extra HM Modules
       [
-      
+
       ]
       # Extra Modules
       [
         ./modules/ollama
       ])
-      (mkNixos "medli" inputs.nixpkgs-unstable 
+      (mkNixos "medli" inputs.nixpkgs-unstable
       # Extra HomeManager Modules
       [
         ./machines/nixos/_commonhome/desktop/kde
