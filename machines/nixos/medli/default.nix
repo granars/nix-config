@@ -37,7 +37,6 @@ in
 
   # Fingerprint
   services.fprintd.enable = true;
-  security.pam.services.login.fprintAuth = true;
 
   # Bluetooth
   hardware.bluetooth.enable = true;

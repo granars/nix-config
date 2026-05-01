@@ -7,5 +7,6 @@
     ../../../../../dots/catppuccin/default.nix
   ];
 
-  
+  security.pam.services.login.fprintAuth = true;
+
 }
