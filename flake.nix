@@ -45,7 +45,6 @@
     };
     mac-app-util = {
       url = "github:hraban/mac-app-util";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
     plasma-manager = {
       url = "github:nix-community/plasma-manager";

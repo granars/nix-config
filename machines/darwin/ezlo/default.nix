@@ -17,7 +17,7 @@
       cleanup = "none";
       upgrade = true;
     };
-    brewPrefix = "/opt/homebrew/bin";
+    prefix = "/opt/homebrew/";
     caskArgs = {
       no_quarantine = true;
     };
@@ -67,6 +67,10 @@
 
     fonts.packages = [
       pkgs.nerd-fonts.jetbrains-mono
+    ];
+
+    nixpkgs.config.permittedInsecurePackages = [
+      "electron-39.8.10"
     ];
 
   #services.nix-daemon.enable = lib.mkForce true;
